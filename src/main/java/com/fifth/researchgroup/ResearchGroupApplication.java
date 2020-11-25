@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author Lenovo
  */
 @SpringBootApplication
-public class ResearchgroupApplication {
+public class ResearchGroupApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ResearchgroupApplication.class, args);
+        SpringApplication.run(ResearchGroupApplication.class, args);
     }
 
 }
