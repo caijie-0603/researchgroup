@@ -13,9 +13,15 @@ public class ResumeController {
     @Autowired
     private ResumeService resumeService;
 
-    @GetMapping("/resume/update")
-    public void update(Resume resume)
+    @PutMapping("/resume/update")
+    public int update(Resume resume)    //返回0表示未修改成功，返回1表示修改成功
     {
-        resumeService.updateResume(resume);
+        return resumeService.updateResume(resume);
+    }
+
+    @GetMapping("/resume/queryResumeById")
+    public Resume queryResumeById(int id)
+    {
+        return resumeService.queryResumeById(id);
     }
 }

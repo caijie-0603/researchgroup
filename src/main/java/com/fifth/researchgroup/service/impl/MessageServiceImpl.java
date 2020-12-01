@@ -24,12 +24,24 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public void addMessage(Message message) {
-        messageDao.addMessage(message);
+    public int addMessage(Message message) {
+        return messageDao.addMessage(message);
     }
 
     @Override
-    public void deleteMessage(int id) {
-        messageDao.deleteMessage(id);
+    public int deleteMessage(int id) {
+        return messageDao.deleteMessage(id);
     }
+
+    @Override
+    public int auditMessage(int id) {
+        return messageDao.auditMessage(id);
+    }
+
+    @Override
+    public List<Message> findNoAuditMessages() {
+        return messageDao.findNoAuditMessages();
+    }
+
+
 }

@@ -15,4 +15,8 @@
     <select id="findUserById" resultType="User" parameterType="int">
         select id,phone_number,password,name,gender,age,degree,email,identity,head_pic from user where id=#{id}
     </select>
+
+    <select id="findUserByPhone" resultType="User" parameterType="String">
+        select id,phone_number,password,name,gender,age,degree,email,identity,head_pic from user where phone_number=#{phone_number}
+    </select>
 </mapper>

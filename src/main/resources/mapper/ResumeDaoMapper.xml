@@ -12,5 +12,9 @@
         update resume set content=#{content} where user_id=#{user_id}
     </update>
 
+    <select id="queryResumeById" parameterType="int" resultType="Resume">
+        select id,user_id,content,send_time from resume where user_id=#{id}
+    </select>
+
 
 </mapper>

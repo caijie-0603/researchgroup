@@ -15,25 +15,25 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-    @Autowired
-    private ResumeService resumeService;
 
     @PostMapping("/user/add")
-    public void addUser(User user)
+    public int addUser(User user)       //返回0代表添加失败 返回1代表添加成功 返回2代表用户电话号码已存在
     {
-        userService.addUser(user);
-        Resume resume = new Resume();
-        resume.setUser_id(user.getId());
-        resumeService.addResume(resume);
+      return userService.addUser(user);
     }
 
     @GetMapping("/user/findAllUsers")
-    public void findAllUsers()
+    public List<User> findAllUsers()
     {
-        List<User> users = userService.findAllUsers();
-        for (User user : users) {
-            System.out.println(user);
-        }
+        return userService.findAllUsers();
     }
+
+    @GetMapping("/user/findUserById")
+    public User findUserById(int id)
+    {
+        return userService.findUserById(id);
+    }
+
+
 
 }
