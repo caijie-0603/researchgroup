@@ -5,11 +5,11 @@
 <mapper namespace="com.fifth.researchgroup.dao.ResumeDao">
 
     <insert id="addResume" parameterType="Resume" useGeneratedKeys="true" keyProperty="id">
-        insert into resume(id,user_id,content) values (#{id},#{user_id},#{content})
+        insert into resume(id,user_id,content) values (#{id},#{userId},#{content})
     </insert>
 
     <update id="updateResume" parameterType="Resume">
-        update resume set content=#{content} where user_id=#{user_id}
+        update resume set content=#{content} where user_id=#{userId}
     </update>
 
     <select id="queryResumeById" parameterType="int" resultType="Resume">

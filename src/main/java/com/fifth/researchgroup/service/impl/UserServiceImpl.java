@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int addUser(User user) {
-        String phone_number = user.getPhone_number();
+        String phone_number = user.getPhoneNumber();
         if(userDao.findUserByPhone(phone_number)!=null)
         {
             return 2;       //若用户电话号码则存在返回2
@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
         if(result!=0)
         {
             Resume resume = new Resume();
-            resume.setUser_id(user.getId());
+            resume.setUserId(user.getId());
             resumeDao.addResume(resume);
             return result;
         }

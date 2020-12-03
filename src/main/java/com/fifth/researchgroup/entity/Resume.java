@@ -13,9 +13,9 @@ import java.util.Date;
 public class Resume {       //简历类
 
     private int id;             //简历id
-    private int user_id;        //用户id
+    private int userId;        //用户id
     private String content;     //简历内容
-    private Date send_time;   //修改提交时间
+    private Date sendTime;   //修改提交时间
 
 
 }

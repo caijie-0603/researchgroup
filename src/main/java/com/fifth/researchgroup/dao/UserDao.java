@@ -12,6 +12,6 @@ public interface UserDao {
 
     public User findUserById(int id);   //根据id查出单个成员
 
-    public User findUserByPhone(String phone_number);   //根据用户名（电话号码）查出单个成员
+    public User findUserByPhone(String phoneNumber);   //根据用户名（电话号码）查出单个成员
 
 }
