@@ -18,4 +18,8 @@ public interface MessageDao {
 
     public List<Message> findNoAuditMessages();  //查询未审核的通知新闻
 
+    public List<Message> findAuditMessages();  //查询已审核的通知新闻
+
+    public Message findMessageById(int id);       //根据id查询通知新闻
+
 }

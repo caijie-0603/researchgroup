@@ -25,6 +25,7 @@ public class UserServiceImpl implements UserService {
             return 2;       //若用户电话号码则存在返回2
         }
         int result = userDao.addUser(user);
+
         if(result!=0)
         {
             Resume resume = new Resume();
@@ -50,6 +51,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findUserByPhone(String phone_number) {
         return userDao.findUserByPhone(phone_number);
+    }
+
+    @Override
+    public int updatePassword(User user) {
+        return userDao.updatePassword(user);
+    }
+
+    @Override
+    public int updateUser(User user) {
+        return userDao.updateUser(user);
     }
 
 }

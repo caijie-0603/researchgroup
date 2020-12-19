@@ -5,12 +5,15 @@ import com.fifth.researchgroup.entity.User;
 import com.fifth.researchgroup.service.ResumeService;
 import com.fifth.researchgroup.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpRequest;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class UserController {
 
     @Autowired
@@ -34,6 +37,17 @@ public class UserController {
         return userService.findUserById(id);
     }
 
+    @PutMapping("/user/updatePwd")
+    public int updatePassword(@RequestBody User user)
+    {
 
+        return userService.updatePassword(user);
+    }
+
+    @PutMapping("/user/updateUser")
+    public int updateUser(@RequestBody User user)
+    {
+        return userService.updateUser(user);
+    }
 
 }

@@ -11,11 +11,11 @@
     </resultMap>
 
     <select id="findAllMessages" resultMap="messages">
-        select id,sender_id,title,content,send_time,type,is_audit from news_notice
+        select id,sender_id,title,content,send_time,type,is_audit from news_notice order by send_time desc
     </select>
 
     <select id="findMessagesByType" parameterType="int" resultType="Message">
-        select id,sender_id,title,content,send_time,type,is_audit from news_notice where type=#{type}
+        select id,sender_id,title,content,send_time,type,is_audit from news_notice where type=#{type} order by send_time desc
     </select>
 
     <insert id="addMessage" parameterType="Message" useGeneratedKeys="true" keyProperty="id">
@@ -30,7 +30,16 @@
         update news_notice set is_audit=1 where id = #{id}
     </update>
 
-    <select id="findNoAuditMessages" resultType="Message">
-        select id,sender_id,content,send_time,type,is_audit from news_notice where is_audit=0
+    <select id="findNoAuditMessages" resultMap="messages">
+        select id,sender_id,title,content,send_time,type,is_audit from news_notice where is_audit=0 order by send_time desc
     </select>
+
+    <select id="findAuditMessages" resultMap="messages">
+        select id,sender_id,title,content,send_time,type,is_audit from news_notice where is_audit=1 order by send_time desc
+    </select>
+
+    <select id="findMessageById" resultMap="messages" resultType="int">
+        select id,sender_id,title,content,send_time,type,is_audit from news_notice where id=#{id}
+    </select>
+
 </mapper>

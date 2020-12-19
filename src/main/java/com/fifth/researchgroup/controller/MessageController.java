@@ -54,5 +54,16 @@ public class MessageController {
         return messageService.findNoAuditMessages();
     }
 
+    @GetMapping("/message/findAuditMessages")
+    public List<Message> findAuditMessages()
+    {
+        return messageService.findAuditMessages();
+    }
+
+    @GetMapping("/message/findMessageById")
+    public Message findMessageById(int id){
+        return messageService.findMessageById(id);
+    }
+
 
 }

@@ -14,4 +14,8 @@ public interface UserDao {
 
     public User findUserByPhone(String phoneNumber);   //根据用户名（电话号码）查出单个成员
 
+    public int updatePassword(User user);              //修改密码
+
+    public int updateUser(User user);           //修改角色信息
+
 }

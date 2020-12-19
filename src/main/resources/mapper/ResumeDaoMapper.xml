@@ -12,7 +12,12 @@
         update resume set content=#{content} where user_id=#{userId}
     </update>
 
-    <select id="queryResumeById" parameterType="int" resultType="Resume">
+    <resultMap id="resumeMap" type="Resume">
+        <result property="userId" column="user_id"/>
+        <result property="sendTime" column="send_time"/>
+    </resultMap>
+
+    <select id="queryResumeById" parameterType="int" resultMap="resumeMap">
         select id,user_id,content,send_time from resume where user_id=#{id}
     </select>
 

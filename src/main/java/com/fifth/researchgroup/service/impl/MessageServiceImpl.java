@@ -25,7 +25,9 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public int addMessage(Message message) {
-        return messageDao.addMessage(message);
+
+        messageDao.addMessage(message);
+        return message.getId();
     }
 
     @Override
@@ -41,6 +43,16 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public List<Message> findNoAuditMessages() {
         return messageDao.findNoAuditMessages();
+    }
+
+    @Override
+    public List<Message> findAuditMessages() {
+        return messageDao.findAuditMessages();
+    }
+
+    @Override
+    public Message findMessageById(int id) {
+        return messageDao.findMessageById(id);
     }
 
 
