@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fifth.researchgroup.dao.CalendarDao">
+    
+    
+    <resultMap id="CalendarList" type="Calendar">
+        <result property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="sendTime" column="send_time"/>
+    </resultMap>
+    
+    <select id="searchCalendarsBySendTime" parameterType="String" resultMap="CalendarList">
+        select id,user_id,user_name,content,send_time,time from work_calendar where time=#{time}
+    </select>
+
+    <delete id="deleteCalendar" parameterType="int">
+        delete from work_calendar where id=#{id}
+    </delete>
+
+    <insert id="addCalendar">
+        insert into work_calendar values (#{id},#{userId},#{userName},#{content},#{sendTime},#{time});
+    </insert>
+
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fifth.researchgroup.dao.AttachmentDao">
+
+    <insert id="addAttachment" parameterType="MessageAttachment" useGeneratedKeys="true" keyProperty="id">
+        insert into news_notice_attachment values (#{id},#{messageId},#{name},#{url})
+    </insert>
+
+    <select id="queryMsgAttachment" parameterType="int" resultType="String">
+        select name from news_notice_attachment where messageId = #{msgId}
+    </select>
+</mapper>
